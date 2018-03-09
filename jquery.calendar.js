@@ -1,4 +1,6 @@
  var tableData="";
+ var dateTo='05-Mar-2018';
+ var dateFrom='10-Mar-2018';
 $(document).ready(function(){
         var currentMonth=$('#hiddenCurrentMonth').val();
 
@@ -46,7 +48,9 @@ function buildHtmlTable(data){
     if(tableData.data.length>0){
         var table='<tr>';
         $.each(tableData.data,function(index,value){
-                table+='<td width="100px">'+value+'</td>';
+				var dateParts=value.split('-');
+				
+                table+='<td width="100px">'+dateParts[0]+'-'+dateParts[1]+'</td>';
             });
         table+='</tr>';
         
@@ -84,17 +88,35 @@ var timelineData = '<div class="row">'+
 	
 	$(".products_cb:checked").each(function(){
 	  var th=this;
-	  	 table+='<tr class="'+timeline+'">';
+	  	 table+='<tr class="'+timeline+'" id="timeline-'+$(th).data('id')+'">';
             $.each(tableData.data,function(index,value){
-                    table+='<td width="100px" data-id="">'+$(th).parent().text()+' </td>';
-                });
+				var bookedClass='';
+				var arrIndex=$.inArray(value,tableData.bookedFrom);
+				if(arrIndex>=0){
+					if($(th).data('id')== tableData.bookedProduct[arrIndex]){
+						bookedClass='green';
+					}
+				}
+                table+='<td width="100px" data-id="'+$(th).data('id')+'" data-duration="'+$(th).data('duration')+'" data-date="'+value+'" class="'+value+' '+bookedClass+'">'+$(th).parent().text()+' </td>';
+            });
             table+='</tr>';
+			
 
 	})
-	
-
-            
-            $('.timeline_product:last').append(table);
+	$('.timeline_product:last').append(table);
+	setTimeout(function(){
+		$('.timeline_product:last td.green').each(function(){
+			var bookedDate=($(this).data('date')).split('-');
+			var bdate=bookedDate[0];
+			for(i=0;i<=$(this).data('duration');i++){
+				var fullDate=(parseInt(bdate)+i)+'-'+bookedDate[1]+'-'+bookedDate[2];
+				 var greenTimeId=$(this).parents('.timeline_product').find('tr').attr('id');
+				 $('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
+				 $(this).parents('.timeline_product').find('tr td:not(.green).'+fullDate).addClass('grey');	
+			}
+				
+		});
+	},500);
             
 	
 	$("#addTimeline").modal('hide')

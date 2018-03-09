@@ -79,22 +79,22 @@
 
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <input class="products_cb" type="checkbox" value="1"/> Room 1
+                                <input class="products_cb" data-id="1" data-available="5" data-booked="3" data-duration="4"  type="checkbox" value="1"/> Room 1
                             </li>
                             <li class="list-group-item">
-                                <input  class="products_cb" type="checkbox" value="2"/> Room 2
+                                <input  class="products_cb" data-id="2" data-available="6" data-booked="4" data-duration="3"  type="checkbox" value="2"/> Room 2
                             </li>
                             <li class="list-group-item">
-                                <input class="products_cb" type="checkbox" value="3"/> Room 3
+                                <input class="products_cb" data-id="3" data-available="4" data-booked="3"  data-duration="1" type="checkbox" value="3"/> Room 3
                             </li>
                             <li class="list-group-item">
-                                <input class="products_cb" type="checkbox" value="4"/> Room 4
+                                <input class="products_cb" data-id="4" data-available="5" data-booked="0" data-duration="2" type="checkbox" value="4"/> Room 4
                             </li>
                             <li class="list-group-item">
-                                <input  class="products_cb" type="checkbox" value="5"/> Room 5
+                                <input  class="products_cb" data-id="5" data-available="5" data-booked="0" data-duration="1" type="checkbox" value="5"/> Room 5
                             </li>
                             <li class="list-group-item">
-                                <input class="products_cb" type="checkbox" value="6"/> Room 6
+                                <input class="products_cb" data-id="6" data-available="3" data-booked="0" data-duration="2" type="checkbox" value="6"/> Room 6
                             </li>
                         </ul>
 
@@ -113,9 +113,14 @@
     </div><!-- /.modal -->
     
 <style>
-	
-	.t_sortable tr, .ui-sortable-helper {
+.t_sortable tr, .ui-sortable-helper {
   cursor: move;
+}
+.green{
+	background-color:green;
+}
+.grey{
+	background-color:grey;
 }
 </style>
 
