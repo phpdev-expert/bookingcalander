@@ -110,13 +110,13 @@ var timelineData = '<div class="row">'+
 			var bdate=bookedDate[0];
 			for(i=0;i<=$(this).data('duration');i++){
 				var fullDate=(parseInt(bdate)+i)+'-'+bookedDate[1]+'-'+bookedDate[2];
-				 var greenTimeId=$(this).parents('.timeline_product').find('tr').attr('id');
-				 $('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
-				 $(this).parents('.timeline_product').find('tr td:not(.green).'+fullDate).addClass('grey');	
+				var greenTimeId=$(this).parents('.timeline_product').find('tr').attr('id');
+				$('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
+				$(this).parents('.timeline_product').find('tr td:not(.green).'+fullDate).addClass('grey');	
 			}
 				
 		});
-	},500);
+	},100);
             
 	
 	$("#addTimeline").modal('hide')
