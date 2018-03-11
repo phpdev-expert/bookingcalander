@@ -12,16 +12,21 @@
         </script>
     </head>
     <body>
-    
-     <input type="button" value="+ Timeline" onclick="addTimeLine()"/>
-     
+    	<div class="container">
+    		<div class="row top_timeline_btn">
+    			<div class="col-md-1"></div>
+    			<div class="col-md-11">
+  					<input type="button" value="+ Timeline" onclick="addTimeLine()"/>
+    			</div>
+    		</div>
+    	</div> 
         <div class="container">
             <input type="hidden" id="hiddenCurrentMonth" value="<?php echo date('Y-m-d')?>"/>
-            <div class="row">
-                <div class="col-md-1 pull-left">
+            <div class="row timeline_row">
+                <div class="col-md-1 side_bar">
                     Sidebar
                 </div>
-                <div class="col-md-11 pull-left">
+                <div class="col-md-11">
                     <div class="row">
                         <a role="button" id="prevMonth">
                             <span class="glyphicon glyphicon-chevron-left">
@@ -36,13 +41,8 @@
                     </table>
                 </div>
             </div>
-            
-            <div class="append-timeline">
-            	
-            	
-            	
+            <div class="append-timeline">	
             </div>
-
         </div>
     </body>
 
@@ -118,10 +118,72 @@
 }
 .green{
 	background-color:green;
+	height: 35px;
+    color: #d9d9d9;
 }
 .grey{
 	background-color:grey;
+    color: #d9d9d9;
 }
+a#prevMonth {
+    position: absolute;
+    top: 17px;
+    left: -5;
+}
+a#nextMonth {
+    position: absolute;
+    top: 17px;
+    right: -5;
+}
+.ui-sortable-handle td {
+    padding: 10px 10px;
+    border: 1px solid #ddd;
+}
+.pull-left.timeline_list ul {
+    position: absolute;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+.sub_list_timeline {
+    position: absolute;
+    left: 0;
+}
+#bookingCalendar td {
+    background: #f5f5f5;
+    border: 1px solid #dfdfdf;
+    color: #686868;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px 0;
+}
+.col-md-11.pull-left.timeline_sub_list table {
+    margin-bottom: 2px;
+}
+.top_timeline_btn{
+	margin: 5px 0 5px 0;
+}
+.timeline_row .col-md-11.pull-left {
+    padding: 0;}
+ .dropdown-menu{
+ 	min-width: 92px;
+    padding: 0px 9px !important;
+ }
+/*
+.pull-left.side_bar {
+    padding: 16px 0;
+}
+
+.top_timeline_btn .col-md-11 {
+    padding-left: 3px;
+}
+.col-md-1.pull-left.timeline_list li {
+    border: 1px solid #ddd;
+    padding: 10px 1px;
+    margin-right: 1px;
+}
+
+}*/
 </style>
 
 </html>

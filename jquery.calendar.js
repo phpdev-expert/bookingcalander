@@ -50,7 +50,7 @@ function buildHtmlTable(data){
         $.each(tableData.data,function(index,value){
 				var dateParts=value.split('-');
 				
-                table+='<td width="100px">'+dateParts[0]+'-'+dateParts[1]+'</td>';
+                table+='<td width="100px">'+dateParts[0]+'<br>'+dateParts[1]+'</td>';
             });
         table+='</tr>';
         
@@ -75,9 +75,10 @@ function saveTimeline(){
 	var randomNumberBetween0and19 = Math.floor(Math.random() *1000);
 	
 var timelineData = '<div class="row">'+
-'                <div class="col-md-1 pull-left">'+timeline+
+'                <div class="col-md-1 pull-left timeline_list">'+
+'                 <div class="dropdown">  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">'+timeline+' <span class="caret"></span></button>  <ul class="dropdown-menu sub_list_timeline"> <li>Prod 1 </li> <li> Prod 2 </li>  <li> Prod 3 </li> </ul></div>                               '+
 '                </div>'+
-'                <div class="col-md-11 pull-left">'+
+'                <div class="col-md-11 pull-left timeline_sub_list">'+
 '                    <table id="'+randomNumberBetween0and19+'" border="1" class="table table-striped timeline_product t_sortable">'+
 '                    </table>'+
 '                </div>'+
@@ -97,7 +98,7 @@ var timelineData = '<div class="row">'+
 						bookedClass='green';
 					}
 				}
-                table+='<td width="100px" data-id="'+$(th).data('id')+'" data-duration="'+$(th).data('duration')+'" data-date="'+value+'" class="'+value+' '+bookedClass+'">'+$(th).parent().text()+' </td>';
+                table+='<td width="100px" data-id="'+$(th).data('id')+'" data-duration="'+$(th).data('duration')+'" data-date="'+value+'" class="'+value+' '+bookedClass+'">'+$(th).data('id')+' </td>';
             });
             table+='</tr>';
 			
