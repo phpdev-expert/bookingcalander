@@ -125,15 +125,15 @@
 	background-color:grey;
     color: #d9d9d9;
 }
-a#prevMonth {
+#prevMonth {
     position: absolute;
-    top: 17px;
-    left: -5;
+    top: -25px;
+    left: 456px;
 }
-a#nextMonth {
+#nextMonth {
     position: absolute;
-    top: 17px;
-    right: -5;
+    top: -25px;
+    right: 570px;
 }
 .ui-sortable-handle td {
     padding: 10px 10px;
@@ -144,10 +144,6 @@ a#nextMonth {
     list-style-type: none;
     padding: 0;
     width: 100%;
-}
-.sub_list_timeline {
-    position: absolute;
-    left: 0;
 }
 #bookingCalendar td {
     background: #f5f5f5;
@@ -160,15 +156,37 @@ a#nextMonth {
 .col-md-11.pull-left.timeline_sub_list table {
     margin-bottom: 2px;
 }
-.top_timeline_btn{
-	margin: 5px 0 5px 0;
+.top_timeline_btn {
+    margin-top: 20px;
+    margin-bottom: 3px;
 }
 .timeline_row .col-md-11.pull-left {
     padding: 0;}
  .dropdown-menu{
  	min-width: 92px;
     padding: 0px 9px !important;
+    border-radius: 0px;
  }
+ .col-md-1.side_bar {
+    padding: 17px 10px;
+    background: #f5f5f5;
+    border: 1px solid #dfdfdf;
+}
+.col-md-1.timeline_list {
+    padding: 0;
+    margin-top: 2px;
+}
+.btn.btn-primary.dropdown-toggle {
+    border-radius: 0px;
+    width: 100%;
+    padding: 9px 0;
+    padding: 9px 8px;
+    text-align: left;
+}
+.col-md-11.pull-left.timeline_sub_list {
+    margin-top: 2px;
+}
+
 /*
 .pull-left.side_bar {
     padding: 16px 0;
