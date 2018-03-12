@@ -63,7 +63,8 @@ function buildHtmlTable(data){
 }
 
 function addTimeLine(){
-	
+	$("#timeline").val('');
+	$(".products_cb").prop("checked",false);
 	$("#addTimeline").modal('show')
 	
 }
@@ -130,7 +131,8 @@ function appllyDrag(){
   $(".t_sortable").sortable({
     connectWith: ".t_sortable",
     helper:"clone",
-    receive:function( event, ui ){
+    receive:function(event, ui ){
+    	//console.log(ui);
     	console.log('reciver'+event.target.id);
     	console.log($('sender'+ui.sender).attr('id'))
 	},

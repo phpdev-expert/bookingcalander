@@ -79,7 +79,7 @@
 
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <input class="products_cb" data-id="1" data-available="5" data-booked="3" data-duration="4"  type="checkbox" value="1"/> Room 1
+                                <input class="products_cb" data-id="1" data-available="5" data-booked="3" data-duration="4"  type="checkbox" value="1"  data-from="2018-03-05" data-to="2018-03-05"/> Room 1
                             </li>
                             <li class="list-group-item">
                                 <input  class="products_cb" data-id="2" data-available="6" data-booked="4" data-duration="3"  type="checkbox" value="2"/> Room 2
