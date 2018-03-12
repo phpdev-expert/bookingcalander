@@ -96,7 +96,7 @@ var timelineData = '<div class="row">'+
 				var arrIndex=$.inArray(value,tableData.bookedFrom);
 				if(arrIndex>=0){
 					if($(th).data('id')== tableData.bookedProduct[arrIndex]){
-						bookedClass='green';
+						bookedClass='green booked-green';
 					}
 				}
                 table+='<td width="100px" data-id="'+$(th).data('id')+'" data-duration="'+$(th).data('duration')+'" data-date="'+value+'" class="'+value+' '+bookedClass+'">'+$(th).data('id')+' </td>';
@@ -107,17 +107,7 @@ var timelineData = '<div class="row">'+
 	})
 	$('.timeline_product:last').append(table);
 	setTimeout(function(){
-		$('.timeline_product:last td.green').each(function(){
-			var bookedDate=($(this).data('date')).split('-');
-			var bdate=bookedDate[0];
-			for(i=0;i<=$(this).data('duration');i++){
-				var fullDate=(parseInt(bdate)+i)+'-'+bookedDate[1]+'-'+bookedDate[2];
-				var greenTimeId=$(this).parents('.timeline_product').find('tr').attr('id');
-				$('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
-				$(this).parents('.timeline_product').find('tr td:not(.green).'+fullDate).addClass('grey');	
-			}
-				
-		});
+		bookingColorGeneraion();
 	},100);
             
 	
@@ -134,9 +124,64 @@ function appllyDrag(){
     receive:function(event, ui ){
     	//console.log(ui);
     	console.log('reciver'+event.target.id);
-    	console.log($('sender'+ui.sender).attr('id'))
+    	console.log('sender'+$(ui.sender).attr('id'))
+        bookingGenearte(event.target.id,$(ui.sender).attr('id'));
 	},
     zIndex: 999990
   }).disableSelection();
   
+}
+
+function bookingColorGeneraion(){
+    $('.timeline_product td.booked-green').each(function(){
+        var greenTimeId=$(this).parents('.ui-sortable-handle').attr('id');
+        $('tr#'+greenTimeId).find('td').removeClass('.green');
+        $('tr#'+greenTimeId).find('td').removeClass('.grey');
+        var bookedDate=($(this).data('date')).split('-');
+        var bdate=bookedDate[0];
+        for(i=0;i<$(this).data('duration');i++){
+            var fullDate=(parseInt(bdate)+i)+'-'+bookedDate[1]+'-'+bookedDate[2];
+            $('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
+            $('tr#'+greenTimeId).siblings().find('td:not(.green).'+fullDate).addClass('grey');  
+        }
+    });
+}
+
+
+function bookingGenearte(receive,sender){
+    $('#'+sender+' td').removeClass('grey');
+    $('#'+receive+' td').removeClass('grey');
+     $('#'+sender+' td').not('.booked-green').removeClass('green');
+     $('#'+receive+' td').not('.booked-green').removeClass('green');
+
+    $('#'+sender+' td.booked-green').each(function(){
+        var greenTimeId=$(this).parents('.ui-sortable-handle').attr('id');
+        var bookedDate=($(this).data('date')).split('-');
+        var bdate=bookedDate[0];
+        for(i=0;i<$(this).data('duration');i++){
+           var fullDate=(parseInt(bdate)+i)+'-'+bookedDate[1]+'-'+bookedDate[2];
+         $('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
+        $('tr#'+greenTimeId).siblings().find('td:not(.green).'+fullDate).addClass('grey'); 
+        }
+    });
+    
+    if($('#'+sender+' td.booked-green').length==0){
+        $('#'+sender).find('td').removeClass('grey');
+    }
+
+    $('#'+receive+' td.booked-green').each(function(){
+        var greenTimeId=$(this).parents('.ui-sortable-handle').attr('id');
+        var bookedDate=($(this).data('date')).split('-');
+        var bdate=bookedDate[0];
+        for(i=0;i<$(this).data('duration');i++){
+           var fullDate=(parseInt(bdate)+i)+'-'+bookedDate[1]+'-'+bookedDate[2];
+            $('tr#'+greenTimeId).find('td.'+fullDate).addClass('green');
+            $('tr#'+greenTimeId).siblings().find('td:not(.green).'+fullDate).addClass('grey');  
+        }
+    });
+    if($('#'+receive+' td.booked-green').length==0){
+        $('#'+receive).find('td').removeClass('grey');
+    }
+    
+    
 }

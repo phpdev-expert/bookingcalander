@@ -10,8 +10,8 @@ if(isset($_REQUEST['currentMonth']) && $_REQUEST['currentMonth']){
 		}
 		
 	}
-	$bookedFrom=['5-Apr-2018','5-Mar-2018','12-Mar-2018'];
-	$bookedProduct=['0','1','1'];
+	$bookedFrom=['5-Apr-2018','5-Mar-2018','9-Mar-2018','15-Mar-2018'];
+	$bookedProduct=['0','1','2','3'];
 	$allDates=getAllDates($_REQUEST['currentMonth']);
 	//echo "<pre>";print_r($allDates);die;
 	$calendarData=[];
