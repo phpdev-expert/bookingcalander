@@ -15,16 +15,13 @@
     	<div class="container">
     		<div class="row top_timeline_btn">
     			<div class="col-md-1"></div>
-    			<div class="col-md-11">
-  					<input type="button" value="+ Timeline" onclick="addTimeLine()"/>
-    			</div>
     		</div>
     	</div> 
         <div class="container">
             <input type="hidden" id="hiddenCurrentMonth" value="<?php echo date('Y-m-d')?>"/>
             <div class="row timeline_row">
-                <div class="col-md-1 side_bar">
-                    Sidebar
+                <div class="col-md-1 ">
+                 &nbsp;
                 </div>
                 <div class="col-md-11">
                     <div class="row">
@@ -46,75 +43,10 @@
         </div>
     </body>
 
-
-    <div class="modal fade" tabindex="-1" role="dialog" id="addTimeline">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            &times;
-                        </span>
-                    </button>
-                    <h4 class="modal-title">
-                        Add Time Line
-                    </h4>
-                </div>
-                <div class="modal-body">
-                
-                
-                <div class="form-group">
-                        <label for="exampleInputEmail1">
-                        Name
-                        </label>
-                        
-                        <input  type="text" id="timeline"/>
-                        
-                </div>
-                        
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">
-                            Select Products
-                        </label>
-
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input class="products_cb" data-id="1" data-available="5" data-booked="3" data-duration="4"  type="checkbox" value="1" /> Room 1(from 5-Mar-2018, duration 4 days )
-                            </li>
-                            <li class="list-group-item">
-                                <input  class="products_cb" data-id="2" data-available="6" data-booked="4" data-duration="3"  type="checkbox" value="2"/> Room 2   (from 9-Mar-2018, duration 3 days) 
-                            </li>
-                            <li class="list-group-item">
-                                <input class="products_cb" data-id="3" data-available="4" data-booked="3"  data-duration="5" type="checkbox" value="3"/> Room 3 (from 15-Mar-2018, duration 5 days ) 
-                            </li>
-                            <li class="list-group-item">
-                                <input class="products_cb" data-id="4" data-available="5" data-booked="0" data-duration="2" type="checkbox" value="4"/> Room 4 (Not Booked Yet) 
-                            </li>
-                            <li class="list-group-item">
-                                <input  class="products_cb" data-id="5" data-available="5" data-booked="0" data-duration="1" type="checkbox" value="5"/> Room 5  (Not Booked Yet) 
-                            </li>
-                            <li class="list-group-item">
-                                <input class="products_cb" data-id="6" data-available="3" data-booked="0" data-duration="2" type="checkbox" value="6"/> Room 6  (Not Booked Yet) 
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="button" class="btn btn-primary" onclick="saveTimeline()">
-                        Save changes
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    
+  
 <style>
 .t_sortable tr, .ui-sortable-helper {
-  cursor: move;
+  /*cursor: move;*/
 }
 .green{
 	background-color:green;
@@ -202,6 +134,91 @@
 }
 
 }*/
+
+.append-timeline .table > tbody > tr > td, 
+.append-timeline.table > tbody > tr > th, 
+.append-timeline .table > tfoot > tr > td, 
+.append-timeline .table > tfoot > tr > th, 
+.append-timeline .table > thead > tr > td,
+.append-timeline  .table > thead > tr > th {
+	padding: 8px 3px;
+	line-height: 0.5;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+	background: #fff;
+	font-size: 12px;
+}
+
+.append-timeline td{
+	padding: 8px;
+	line-height: 0.5;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+		background: #fff ;
+}
+span.doclsp{
+	margin-bottom: 10px;
+}
+
+.pull-left {
+	float: left !important;
+	font-size: 11px;
+}
+
+.prodname{
+	margin-top: 10px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
+	margin-bottom: 15px;
+}
+.booked{
+	background: blue !important;
+}
+
+.avilable,.avilableglobal{
+	 background: green !important;
+}
+
+.notavilable,.notavilableglobal{
+	background: white !important;
+}
+
+.ocupied{
+	
+	background: gray !important;
+}
+
+.permotion{
+	background:#b621ae !important;
+}
+
+input {
+	line-height: normal;
+	width: 25px;
+}
+
+.doclsp{
+	display:none;
+
+}
+.test{
+	border: 2px solid red;
+}
+
+tbody{
+	box-shadow: rgb(48, 42, 48) 0px 4px 9px -4px inset;
+
+}
+
+.preventclick td{
+	pointer-events: none;
+} 
+
 </style>
 
 </html>
